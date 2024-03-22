@@ -1,0 +1,28 @@
+import { test } from "vitest";
+import { calculate } from "../calculate";
+
+test("calculate addition", ({ expect }) => {
+  expect(calculate(5, 7, "+")).toBe(12);
+});
+
+test("calculate substraction", ({ expect }) => {
+  expect(calculate(10, 5, "-")).toBe(5);
+});
+
+test("calculate multiplication", ({ expect }) => {
+  expect(calculate(5, 2, "*")).toBe(10);
+});
+
+test("calculate division", ({ expect }) => {
+  expect(calculate(10, 5, "/")).toBe(2);
+});
+
+test("handle division by zero", ({ expect }) => {
+  expect(calculate(10, 0, "/")).toBe("Cannot divide by zero");
+});
+
+// Include in the slide (explanation)
+// The reason why we pass in arrow function in expect
+test("handle division by zero", ({ expect }) => {
+  expect(() => calculate(10, 2, "^")).toThrowError("Invalid Operator");
+});
